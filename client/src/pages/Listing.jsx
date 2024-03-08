@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
+import Map from '../components/Map.jsx';
 import 'swiper/css/bundle';
 import {
   FaBath,
@@ -27,6 +28,7 @@ export default function Listing() {
   const [contact, setContact] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
+  
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -145,6 +147,11 @@ export default function Listing() {
               </button>
             )}
             {contact && <Contact listing={listing} />}
+    
+            <div className="map">
+              
+              <Map address={listing?.address} city = {listing?.city} country={listing?.country}/>
+            </div>
           </div>
         </div>
       )}
