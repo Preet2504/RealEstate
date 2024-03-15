@@ -10,6 +10,7 @@ import CreateListing from './pages/CreateListing.jsx';
 import  UpdateListing  from './pages/UpdateListing.jsx';
 import Listing from './pages/Listing.jsx';
 import Search from './pages/Search.jsx';
+import Bhp from './pages/Bhp.jsx';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
        <Route path='/sign-in' element={<SignIn />} />
        <Route path='/sign-up' element={<SignUp />} />
        <Route path='/about' element={<About />} />
+       <Route path='/predict-price' element={<Bhp />} />
        <Route path='/search' element={<Search />} />
 
        <Route path='/listing/:listingId' element={<Listing />} />

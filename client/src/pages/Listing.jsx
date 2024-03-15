@@ -4,7 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { useSelector } from 'react-redux';
 import { Navigation } from 'swiper/modules';
+import loadingGif from '../assets/loadingGif.gif';
 import Map from '../components/Map.jsx';
+
+
 import 'swiper/css/bundle';
 import {
   FaBath,
@@ -54,7 +57,11 @@ export default function Listing() {
 
   return (
     <main>
-      {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
+      {loading && (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <img src={loadingGif} alt="Loading..." style={{ width: '100px', height: '100px' }} />
+  </div>
+)}
       {error && (
         <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
@@ -147,11 +154,8 @@ export default function Listing() {
               </button>
             )}
             {contact && <Contact listing={listing} />}
-    
-            <div className="map">
-              
-              <Map address={listing?.address} city = {listing?.city} country={listing?.country}/>
-            </div>
+            <Map address={listing.address}/>
+           
           </div>
         </div>
       )}
